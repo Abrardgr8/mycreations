@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abrar Hussain - Aspiring Game & AI Developer. Building innovative projects and learning daily.">
+    <meta name="keywords" content="game developer, AI developer, web developer, portfolio, Roblox, programming">
+    <meta name="author" content="Abrar Hussain">
+    <meta property="og:title" content="Abrar Hussain - Game & AI Developer">
+    <meta property="og:description" content="Building projects, learning daily — aiming for 95% or more in 11th and 12th grade.">
+    <meta property="og:type" content="website">
+    <title>Abrar Hussain - Game & AI Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" onclick="scrollToSection('home')">
+                <i class="fas fa-home"></i> Home
+            </a></li>
+            <li><a href="#about" onclick="scrollToSection('about')">
+                <i class="fas fa-user"></i> About
+            </a></li>
+            <li><a href="#projects" onclick="scrollToSection('projects')">
+                <i class="fas fa-code"></i> Projects
+            </a></li>
+            <li><a href="#contact" onclick="scrollToSection('contact')">
+                <i class="fas fa-envelope"></i> Contact
+            </a></li>
+        </ul>
+    </nav>
 
+    <!-- Hero Section -->
+    <header id="home" class="hero section">
+        <div class="hero-inner">
+            <h3 class="name">Abrar Hussain</h3>
+            <h1 class="tagline">Aspiring Game &amp; AI Developer</h1>
+            <p class="sub">Building projects, learning daily — aiming for 95% or more in 11th and 12th grade.</p>
+        </div>
+    </header>
+
+    <!-- Main Sections -->
+    <main>
+        <section id="about" class="section fade-in">
+            <div class="container">
+                <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
+                <p>Hey!!! I love building games, experimenting with AI, and making websites while balancing school with hands-on projects. I'm passionate about pushing the boundaries of what's possible with code and constantly learning new technologies.</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-tag">Game Development</div>
+                    <div class="skill-tag">Web Development</div>
+                    <div class="skill-tag">Roblox Building</div>
+                    <div class="skill-tag">Problem Solving</div>
+                </div>
+                
+                <p>Currently focused on achieving academic excellence while building a portfolio of innovative projects. My goal is to secure a scholarship and continue pursuing my passion for technology and game development.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="section fade-in">
+            <div class="container">
+                <h2><i class="fas fa-rocket"></i> Projects</h2>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <div class="project-title">
+                            <i class="fab fa-roblox"></i>
+                            Roblox Game (In Progress)
+                        </div>
+                        <div class="project-description">
+                            Developing an immersive multiplayer experience with custom scripting and innovative gameplay mechanics. Learning Lua and game design principles.
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">
+                            <i class="fas fa-globe"></i>
+                            Portfolio Website
+                        </div>
+                        <div class="project-description">
+                            Built this responsive portfolio from scratch using HTML, CSS, and JavaScript. Learned modern web development techniques through hands-on practice.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section fade-in">
+            <div class="container">
+                <h2><i class="fas fa-satellite-dish"></i> Contact</h2>
+                <p>If you want to see my code, collaborate on projects, or just want to connect, feel free to reach out through any of these platforms:</p>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <i class="fab fa-discord"></i>
+                        <span><strong>Discord:</strong> devfromashes</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-roblox"></i>
+                        <span><strong>Roblox:</strong> iaintnoobnorpro1</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span><strong>GitHub:</strong> Abrardgr8</span>
+                    </div>
+                </div>
+                
+                <div class="contact-cta">
+                    <p><i class="fas fa-star"></i> Let's build something amazing together! <i class="fas fa-star"></i></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add fade-in animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        });
+
+        // Navbar active state
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.navbar a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop <= 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
